@@ -15,17 +15,20 @@ JavaScript, no dependencies: the browser gets HTML, one stylesheet, three font f
 | assets/og.jpg | social preview image, 1200x630 |
 | _headers | security and caching headers, read by Cloudflare Pages |
 | robots.txt, sitemap.xml | search engine plumbing |
+| .github/workflows/deploy.yml | the deploy job: stages public files, publishes to Pages |
 
 ## Deploying
 
-Cloudflare Pages, connected to this repository:
+Cloudflare Pages project `rhizosat`, published by GitHub Actions on every push to `main`:
 
-- Framework preset: **None**
-- Build command: **(empty)**
-- Build output directory: **/**
-- Production branch: **main**
-
-Every push to main publishes. Pull requests get their own preview URL.
+- `.github/workflows/deploy.yml` stages an explicit allow-list of public files (`index.html`,
+  `styles.css`, `assets/`, `robots.txt`, `sitemap.xml`, `_headers`) and deploys only those.
+  Nothing else in this repository can ever reach the CDN.
+- Credentials live as the repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.
+- Wrangler cannot run on the maintainer's phone - its `workerd` dependency has no Android build -
+  so deploys happen on the GitHub runner and never locally.
+- Live at rhizosat.com and rhizosat.pages.dev. To redeploy by hand: Actions -> deploy ->
+  Run workflow.
 
 ## Rules
 
