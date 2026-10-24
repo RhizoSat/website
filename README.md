@@ -38,7 +38,9 @@ Cloudflare Pages project `rhizosat`, published by GitHub Actions on every push t
    brand/. This repository consumes them; it does not decide them.
 3. Keep it dependency-free. If a build step ever becomes necessary, that is a decision to record,
    not a convenience to adopt.
-4. The contact address is a placeholder: hello@rhizosat.com is not delivering mail yet.
+4. The contact address is support@rhizosat.com, forwarded to the three founders by Cloudflare
+   Email Routing. It is receive-only: replies leave from a founder's personal inbox until a mail
+   provider with a real mailbox (Zoho) is added.
 
 ## Editing copy
 
